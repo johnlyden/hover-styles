@@ -1,0 +1,100 @@
+$distance: 4px;
+$colorA: black;
+$colorB: #ABD7C1;
+$transitionSpeed: 200ms;
+
+.show {
+  margin: 100px;
+  float: left;
+}
+
+.button {
+  text-transform: uppercase;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 20px 40px;
+  position: relative;
+  width: auto;
+  display: inline;
+  cursor: pointer;
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    top: 0;
+    right: -5px;
+    z-index: -10;
+    background-color: white;
+    -webkit-box-shadow: 3px 5px 12px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 5px 12px 0px rgba(0,0,0,0.6);
+    -box-shadow: 3px 5px 12px 0px rgba(0,0,0,0.6);
+  }
+
+  &:before,
+  &:after {
+      display: block;
+      border: solid 3px $colorA;
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      transition: border-color $transitionSpeed linear;
+  }
+
+  &:before {
+     top: -$distance - 3;
+     left: -$distance - 3;
+     border-color: $colorB;
+  }
+
+   &:after {
+     top: $distance - 3;
+     left: $distance - 3;
+   }
+}
+
+.button--hover-1 {
+  &:before,
+  &:after {
+    transition: border-color $transitionSpeed linear;
+  }
+
+  &:hover {
+    &:before {
+      border-color: $colorA;
+    }
+
+    &:after {
+      border-color: $colorB;
+    }
+  }
+}
+
+.button--hover-2 {
+  &:before,
+  &:after {
+    transition: border-color $transitionSpeed linear, top $transitionSpeed linear, left $transitionSpeed linear;
+  }
+
+  &:hover {
+    &:after {
+      top: -$distance - 3;
+      left: -$distance - 3;
+    }
+
+    &:before {
+      top: $distance - 3;
+      left: $distance - 3;
+
+    }
+  }
+}
+
+.button--hover-3 {
+  transition: color $transitionSpeed linear;
+
+  &:hover {
+    color: $colorB
+  }
+}
