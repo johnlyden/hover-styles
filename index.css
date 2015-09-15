@@ -1,0 +1,15 @@
+.show {
+  margin: 100px;
+  float: left;
+}
+
+.button {
+  text-transform: uppercase;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 20px 40px;
+  position: relative;
+  width: auto;
+  display: inline;
+  cursor: pointer;
+}
